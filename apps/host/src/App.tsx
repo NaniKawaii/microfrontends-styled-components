@@ -9,7 +9,8 @@ import {
   SectionTitle,
   ProductsTheme,
   UsersTheme,
-  CartTheme
+  CartTheme,
+  RightCol
 } from './ui.tsx'
 import ErrorBoundary from './ErrorBoundary.tsx'
 import { GlobalStyle } from './global.tsx'
@@ -24,7 +25,7 @@ export default function App() {
     <Page>
       <GlobalStyle />
       <Header>
-        <Title>Front de Luiggi</Title>
+        <Title>Nashla</Title>
       </Header>
       <Content>
         <Panel>
@@ -37,6 +38,8 @@ export default function App() {
             </Suspense>
           </ErrorBoundary>
         </Panel>
+      </Content>
+      <RightCol>
         <Panel>
           <ErrorBoundary fallback={<Placeholder />}>
             <Suspense fallback={<Placeholder />}>
@@ -50,17 +53,17 @@ export default function App() {
             </Suspense>
           </ErrorBoundary>
         </Panel>
-      </Content>
-      <Panel>
-        <ErrorBoundary fallback={<Placeholder />}>
-          <Suspense fallback={<Placeholder />}>
-            <CartTheme>
-              <SectionTitle>Carrito</SectionTitle>
-              <CartWidget />
-            </CartTheme>
-          </Suspense>
-        </ErrorBoundary>
-      </Panel>
+        <Panel>
+          <ErrorBoundary fallback={<Placeholder />}>
+            <Suspense fallback={<Placeholder />}>
+              <CartTheme>
+                <SectionTitle>Carrito</SectionTitle>
+                <CartWidget />
+              </CartTheme>
+            </Suspense>
+          </ErrorBoundary>
+        </Panel>
+      </RightCol>
     </Page>
   )
 }

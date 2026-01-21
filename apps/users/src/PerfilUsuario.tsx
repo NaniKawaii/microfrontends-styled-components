@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 
 const Card = styled.section`
@@ -43,8 +43,8 @@ export default function PerfilUsuario() {
     <Card>
       <Avatar />
       <div>
-        <Name>Luiggi</Name>
-        <Email>luiggi@example.com</Email>
+        <Name>Nashla</Name>
+        <Email>nashla@example.com</Email>
         <Tag>Usuario</Tag>
       </div>
     </Card>

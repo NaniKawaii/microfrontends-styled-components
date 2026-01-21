@@ -25,9 +25,15 @@ export const Line: ComponentType<ComponentPropsWithoutRef<'div'>> = styled.div`
 `
 
 export const Button: ComponentType<ComponentPropsWithoutRef<'button'>> = styled.button`
-  padding: 8px 12px;
-  background: var(--btn-bg);
+  padding: 10px 14px;
+  background: linear-gradient(135deg, var(--btn-bg), var(--btn-bg-soft));
   color: var(--btn-fg);
-  border: none;
-  border-radius: var(--radius);
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  transition: transform 120ms ease, filter 120ms ease;
+  &:hover { transform: translateY(-1px); filter: brightness(1.02); }
+  &:active { transform: scale(0.98); }
 `

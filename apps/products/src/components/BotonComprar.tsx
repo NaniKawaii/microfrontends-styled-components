@@ -1,12 +1,12 @@
-import * as React from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 const Button = styled.button`
-  padding: 10px 14px;
   background: linear-gradient(135deg, var(--btn-bg), var(--btn-bg-soft));
   color: var(--btn-fg);
-  border: 1px solid var(--border-soft);
+  padding: 10px 14px;
   border-radius: 999px;
+  border: 1px solid var(--border-soft);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
   font-weight: 600;
   letter-spacing: 0.2px;
@@ -25,11 +25,11 @@ const Icon = styled.span`
 
 type Props = { onClick?: () => void; children?: React.ReactNode }
 
-export default function BotonEditar({ onClick, children }: Props) {
+export default function BotonComprar({ onClick, children }: Props) {
   return (
     <Button onClick={onClick}>
-      <Icon>✎</Icon>
-      {children ?? 'Editar'}
+      <Icon>🛍️</Icon>
+      {children ?? 'Comprar'}
     </Button>
   )
 }

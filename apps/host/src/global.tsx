@@ -2,15 +2,15 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
-    --color-bg: #f6f7fb;
-    --color-surface: #ffffff;
-    --color-text: #1f2937;
-    --color-muted: #6b7280;
-    --border-soft: rgba(17, 24, 39, 0.08);
-    --radius: 14px;
-    --shadow-lg: 0 10px 30px rgba(17, 24, 39, 0.08);
-    --btn-bg: #111827;
+    --font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "San Francisco", Roboto, Ubuntu, Cantarell, "Noto Sans", Arial;
+    --color-bg: linear-gradient(135deg, #fff1f2, #fdf4ff); /* rose -> fuchsia */
+    --color-surface: #fff7fb;
+    --color-text: #5b2a3a;
+    --color-muted: #8c6a7a;
+    --border-soft: rgba(91, 42, 58, 0.12);
+    --radius: 18px;
+    --shadow-lg: 0 14px 36px rgba(91, 42, 58, 0.12);
+    --btn-bg: #ec4899; /* default accent */
     --btn-fg: #ffffff;
   }
   * { box-sizing: border-box; }

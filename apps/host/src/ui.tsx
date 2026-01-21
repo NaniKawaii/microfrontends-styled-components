@@ -25,7 +25,7 @@ export const Title: ComponentType<ComponentPropsWithoutRef<'h1'>> = styled.h1`
   font-size: 22px;
   font-weight: 700;
   letter-spacing: 0.4px;
-  background: linear-gradient(90deg, var(--color-text), #4a4a4a);
+  background: linear-gradient(90deg, #ec4899, #a78bfa);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -37,11 +37,17 @@ export const Content: ComponentType<ComponentPropsWithoutRef<'main'>> = styled.m
   gap: 24px;
 `
 
+export const RightCol: ComponentType<ComponentPropsWithoutRef<'div'>> = styled.div`
+  grid-column: 2;
+  display: grid;
+  gap: 24px;
+`
+
 export const Panel: ComponentType<ComponentPropsWithoutRef<'section'>> = styled.section`
   border: 1px solid var(--border-soft);
   border-radius: var(--radius);
   background: var(--color-surface);
-  padding: 20px;
+  padding: 22px;
   box-shadow: var(--shadow-lg);
 `
 
@@ -59,16 +65,19 @@ export const SectionTitle: ComponentType<ComponentPropsWithoutRef<'h2'>> = style
 `
 
 export const ProductsTheme: ComponentType<ComponentPropsWithoutRef<'div'>> = styled.div`
-  --btn-bg: #0b5fff;
+  --btn-bg: #ec4899;
   --btn-fg: #ffffff;
+  --btn-bg-soft: #f9a8d4;
 `
 
 export const UsersTheme: ComponentType<ComponentPropsWithoutRef<'div'>> = styled.div`
-  --btn-bg: #7e22ce;
+  --btn-bg: #c084fc;
   --btn-fg: #ffffff;
+  --btn-bg-soft: #e9d5ff;
 `
 
 export const CartTheme: ComponentType<ComponentPropsWithoutRef<'div'>> = styled.div`
-  --btn-bg: #0f766e;
+  --btn-bg: #fb7185;
   --btn-fg: #ffffff;
+  --btn-bg-soft: #fecdd3;
 `
