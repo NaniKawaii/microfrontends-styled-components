@@ -8,12 +8,17 @@ export default defineConfig({
     react(),
     federation({
       name: 'host',
-      remotes: {
-        products: 'http://localhost:5001/assets/remoteEntry.js',
-        cart: 'http://localhost:5002/assets/remoteEntry.js',
-        users: 'http://localhost:5003/assets/remoteEntry.js'
+      filename: 'remoteEntry.js',
+      exposes: {
+        './cartStore': './src/store.ts'
       },
-      shared: ['react', 'react-dom', 'styled-components']
+      remotes: {
+        products: 'http://localhost:5006/assets/remoteEntry.js',
+        cart: 'http://localhost:5009/assets/remoteEntry.js',
+        users: 'http://localhost:5008/assets/remoteEntry.js',
+        'selected-products': 'http://localhost:5010/assets/remoteEntry.js'
+      },
+      shared: ['react', 'react-dom', 'styled-components', 'zustand']
     })
   ],
   build: { target: 'esnext' }

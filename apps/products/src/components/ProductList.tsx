@@ -19,7 +19,7 @@ export default function ProductList({ products }: Props) {
   return (
     <List>
       {products.map((p) => (
-        <ProductCard key={p.id} name={p.name} price={p.price} />
+        <ProductCard key={p.id} product={p} />
       ))}
     </List>
   )

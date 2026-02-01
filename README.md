@@ -14,9 +14,12 @@ La solución está compuesta por los siguientes módulos:
 - Host (Shell): aplicación principal que integra los microfrontends.
 - Microfrontend de Productos: módulo independiente desarrollado en React.
 - Microfrontend de Usuarios: módulo independiente desarrollado en React.
-- Microfrontend de Carrito (opcional): módulo adicional para demostrar extensibilidad.
+- Microfrontend de Carrito: módulo adicional para demostrar extensibilidad.
+- Microfrontend de Productos Seleccionados: módulo que muestra la lista de productos seleccionados desde el microfrontend de productos.
 
 Cada microfrontend expone su funcionalidad usando Module Federation y puede desplegarse sin afectar al resto del sistema.
+
+**Funcionalidad adicional**: El microfrontend de Productos Seleccionados se actualiza automáticamente cuando se hace clic en el botón "Agregar" de un producto en el microfrontend de Productos, demostrando comunicación entre microfrontends mediante un store compartido.
 
 ---
 
@@ -26,7 +29,8 @@ apps/
 - host/        aplicación contenedora
 - products/    microfrontend de Productos
 - users/       microfrontend de Usuarios
-- cart/        microfrontend de Carrito (opcional)
+- cart/        microfrontend de Carrito
+- selected-products/  microfrontend de Productos Seleccionados
 
 Esta estructura permite trabajar y desplegar cada aplicación de manera independiente.
 
@@ -39,8 +43,9 @@ Esta estructura permite trabajar y desplegar cada aplicación de manera independ
 - Puertos disponibles:
   - Host: 5000
   - Products: 5001
-  - Cart: 5002 (opcional)
+  - Cart: 5002
   - Users: 5003
+  - Selected-products: 5004
 
 ---
 
@@ -51,7 +56,8 @@ Las dependencias se instalan por separado en cada aplicación:
 cd apps/host && npm install
 cd apps/products && npm install
 cd apps/users && npm install
-cd apps/cart && npm install   # opcional
+cd apps/cart && npm install
+cd apps/selected-products && npm install
 
 ---
 
@@ -66,7 +72,7 @@ cd apps/products
 npm run build
 npm run preview -- --port=5001
 
-Carrito (opcional):
+Carrito:
 cd apps/cart
 npm run build
 npm run preview -- --port=5002
@@ -75,6 +81,11 @@ Usuarios:
 cd apps/users
 npm run build
 npm run preview -- --port=5003
+
+Productos Seleccionados:
+cd apps/selected-products
+npm run build
+npm run preview -- --port=5004
 
 ### 2. Levantar el Host
 
@@ -94,7 +105,7 @@ Durante el desarrollo también es posible ejecutar cada módulo en modo dev usan
 
 npm run dev
 
-Es importante mantener los puertos configurados correctamente para que el Host pueda resolver los remotos.
+Es importante mantener los puertos configurados correctamente para que el Host pueda resolver los remotos (5000-5004).
 
 ---
 
@@ -145,6 +156,6 @@ En cada aplicación:
 
 ## Entrega
 
-- Repositorio con los proyectos host, products, users y cart (opcional).
+- Repositorio con los proyectos host, products, users, cart y selected-products.
 - Documento PDF con capturas del Host integrando los microfrontends y el análisis técnico.
 EOF

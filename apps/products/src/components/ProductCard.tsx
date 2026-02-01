@@ -41,14 +41,18 @@ const Icon = styled.span`
   line-height: 1;
 `
 
-type Props = { name: string; price: number }
+type Product = { id: number; name: string; price: number }
 
-export default function ProductCard({ name, price }: Props) {
+type Props = { product: Product }
+
+export default function ProductCard({ product }: Props) {
+  const { addProduct } = (window as any).cartStore()
+
   return (
     <Item>
-      <Name>{name}</Name>
-      <Price>${price.toFixed(2)}</Price>
-      <Button>
+      <Name>{product.name}</Name>
+      <Price>${product.price.toFixed(2)}</Price>
+      <Button onClick={() => addProduct(product)}>
         <Icon>＋</Icon>
         Agregar
       </Button>

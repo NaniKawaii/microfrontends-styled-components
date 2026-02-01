@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect } from 'react'
 import {
   Page,
   Header,
@@ -14,13 +14,19 @@ import {
 } from './ui.tsx'
 import ErrorBoundary from './ErrorBoundary.tsx'
 import { GlobalStyle } from './global.tsx'
+import { cartStore } from './store'
 const PerfilUsuario = React.lazy(() => import('users/PerfilUsuario'))
 const BotonEditar = React.lazy(() => import('users/BotonEditar'))
 
 const ProductsWidget = React.lazy(() => import('products/ProductsWidget'))
 const CartWidget = React.lazy(() => import('cart/CartWidget'))
+const SelectedProductsWidget = React.lazy(() => import('selected-products/SelectedProductsWidget'))
 
 export default function App() {
+  useEffect(() => {
+    (window as any).cartStore = cartStore
+  }, [])
+
   return (
     <Page>
       <GlobalStyle />
@@ -59,6 +65,16 @@ export default function App() {
               <CartTheme>
                 <SectionTitle>Carrito</SectionTitle>
                 <CartWidget />
+              </CartTheme>
+            </Suspense>
+          </ErrorBoundary>
+        </Panel>
+        <Panel>
+          <ErrorBoundary fallback={<Placeholder />}>
+            <Suspense fallback={<Placeholder />}>
+              <CartTheme>
+                <SectionTitle>Productos Seleccionados</SectionTitle>
+                <SelectedProductsWidget />
               </CartTheme>
             </Suspense>
           </ErrorBoundary>
